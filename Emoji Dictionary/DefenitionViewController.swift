@@ -12,7 +12,9 @@ class DefenitionViewController: UIViewController {
     
     @IBOutlet weak var emojiLabel: UILabel!
     @IBOutlet weak var definitionLabel: UILabel!
-    var emoji = "NO EMOJI"
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var birthYearLabel: UILabel!
+    var emoji = Emoji()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,23 +22,9 @@ class DefenitionViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
-        emojiLabel.text = emoji
+        emojiLabel.text = emoji.stringEmoji
+        birthYearLabel.text = "BirthYear:\(emoji.birthYear)"
         
-        if emoji == "🐶" {
-        definitionLabel.text = "A puppy"
-        }
-        if emoji == "👠" {
-            definitionLabel.text = "shoe"
-        }
-        if emoji == "😡" {
-            definitionLabel.text = "Angry"
-        }
-        if emoji == "😋" {
-            definitionLabel.text = "haha"
-        }
-        if emoji == "😂" {
-            definitionLabel.text = "tears"
-        }
         
     }
 
@@ -45,5 +33,41 @@ class DefenitionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+   func abc() -> [Emoji] {
+        let emoji1 = Emoji()
+        emoji1.stringEmoji = "😂"
+        emoji1.birthYear = 2010
+        emoji1.category = "SMiley"
+        emoji1.definition = "Crying"
+        
+        let emoji2 = Emoji()
+        emoji2.stringEmoji = "😋"
+        emoji2.birthYear = 2006
+        emoji2.category = "SMiley"
+        emoji2.definition = "tada"
+        
+        let emoji3 = Emoji()
+        emoji3.stringEmoji = "😡"
+        emoji3.birthYear = 2010
+        emoji3.category = "SMiley"
+        emoji3.definition = "Angry"
+        
+        let emoji4 = Emoji()
+        emoji4.stringEmoji = "👠"
+        emoji4.birthYear = 2010
+        emoji4.category = "Clothes"
+        emoji4.definition = "Shoe"
+        
+        let emoji5 = Emoji()
+        emoji5.stringEmoji = "🐶"
+        emoji5.birthYear = 2001
+        emoji5.category = "Animal"
+        emoji5.definition = "Puppy"
+        
+        return [emoji1, emoji2, emoji3, emoji4, emoji5]
+    }
+    
+    
+
 }
   
